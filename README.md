@@ -68,46 +68,46 @@ set -gu @pwlite_color_win_normal_bg
 ### Colors
 
 Color options
-| Category         | Option Name                         | Default        |
-| ---------------- | ----------------------------------- | -------------- |
-| Presets          |                                     |                |
-|                  | @pwlite_color_primary               | colour31       |
-|                  | @pwlite_color_secondary             | colour81       |
-|                  | @pwlite_color_lighter               | colour231      |
-|                  | @pwlite_color_light                 | colour244      |
-|                  | @pwlite_color_dark                  | colour237      |
-|                  | @pwlite_color_darker                | colour236      |
-|                  | @pwlite_color_accent                | colour208      |
-| Window (Active)  |                                     |                |
-|                  | @pwlite_color_win_active_num        | @color_primary |
-|                  | @pwlite_color_win_active_sep        | @color_primary |
-|                  | @pwlite_color_win_active_name       | @color_lighter |
-|                  | @pwlite_color_win_active_bg         | @color_primary |
-| Window (Normal)  |                                     |                |
-|                  | @pwlite_color_win_normal_num        | @color_light   |
-|                  | @pwlite_color_win_normal_sep        | @color_lighter |
-|                  | @pwlite_color_win_normal_name       | @color_lighter |
-|                  | @pwlite_color_win_normal_bg         | @color_dark    |
-| Session          |                                     |                |
-|                  | @pwlite_color_session_num           | @color_accent  |
-|                  | @pwlite_color_session_name          | @color_accent  |
-|                  | @pwlite_color_session_bg            | white          |
-| Status           |                                     |                |
-|                  | @pwlite_color_status_fg             | @color_lighter |
-|                  | @pwlite_color_status_bg             | @color_darker  |
-| Pane Border      |                                     |                |
-|                  | @pwlite_color_pane_border_active_fg | @color_lighter |
-|                  | @pwlite_color_pane_border_normal_fg | @color_darker  |
-| Prefix Highlight |                                     |                |
-|                  | @pwlite_color_prefix_highlight_fg   | @color_lighter |
-|                  | @pwlite_color_prefix_highlight_bg   | @color_primary |
-| Message          |                                     |                |
-|                  | @pwlite_color_message_fg            | @color_lighter |
-|                  | @pwlite_color_message_bg            | @color_darker  |
-|                  | @pwlite_color_message_command_fg    | @color_primary |
-|                  | @pwlite_color_message_command_bg    | @color_darker  |
-| Clock Mode       |                                     |                |
-|                  | @pwlite_color_clock_mode            | @color_primary |
+| Category         | Option Name                          | Default        |
+| ---------------- | ------------------------------------ | -------------- |
+| Presets          |                                      |                |
+|                  | @pwlite_color_primary                | colour31       |
+|                  | @pwlite_color_secondary              | colour81       |
+|                  | @pwlite_color_lighter                | colour231      |
+|                  | @pwlite_color_light                  | colour244      |
+|                  | @pwlite_color_dark                   | colour237      |
+|                  | @pwlite_color_darker                 | colour236      |
+|                  | @pwlite_color_accent                 | colour208      |
+| Window (Normal)  |                                      |                |
+|                  | @pwlite_color_win_normal_num         | @color_light   |
+|                  | @pwlite_color_win_normal_sep         | @color_lighter |
+|                  | @pwlite_color_win_normal_name        | @color_lighter |
+|                  | @pwlite_color_win_normal_bg          | @color_dark    |
+| Window (Current) |                                      |                |
+|                  | @pwlite_color_win_current_num        | @color_primary |
+|                  | @pwlite_color_win_current_sep        | @color_primary |
+|                  | @pwlite_color_win_current_name       | @color_lighter |
+|                  | @pwlite_color_win_current_bg         | @color_primary |
+| Session          |                                      |                |
+|                  | @pwlite_color_session_num            | @color_accent  |
+|                  | @pwlite_color_session_name           | @color_accent  |
+|                  | @pwlite_color_session_bg             | white          |
+| Status           |                                      |                |
+|                  | @pwlite_color_status_fg              | @color_lighter |
+|                  | @pwlite_color_status_bg              | @color_darker  |
+| Pane Border      |                                      |                |
+|                  | @pwlite_color_pane_border_current_fg | @color_lighter |
+|                  | @pwlite_color_pane_border_normal_fg  | @color_darker  |
+| Prefix Highlight |                                      |                |
+|                  | @pwlite_color_prefix_highlight_fg    | @color_lighter |
+|                  | @pwlite_color_prefix_highlight_bg    | @color_primary |
+| Message          |                                      |                |
+|                  | @pwlite_color_message_fg             | @color_lighter |
+|                  | @pwlite_color_message_bg             | @color_darker  |
+|                  | @pwlite_color_message_command_fg     | @color_primary |
+|                  | @pwlite_color_message_command_bg     | @color_darker  |
+| Clock Mode       |                                      |                |
+|                  | @pwlite_color_clock_mode             | @color_primary |
 
 
 ## License

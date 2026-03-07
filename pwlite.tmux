@@ -34,17 +34,17 @@ set_vars() {
     C_DARKER=$(get_opt "@pwlite_color_darker" "colour236")
     C_ACCENT=$(get_opt "@pwlite_color_accent" "colour208")
 
-    # Window (Active)
-    C_WIN_ACTIVE_NUM=$(get_opt "@pwlite_color_win_active_num" "$C_SECONDARY")
-    C_WIN_ACTIVE_SEP=$(get_opt "@pwlite_color_win_active_sep" "$C_SECONDARY")
-    C_WIN_ACTIVE_NAME=$(get_opt "@pwlite_color_win_active_name" "$C_LIGHTER")
-    C_WIN_ACTIVE_BG=$(get_opt "@pwlite_color_win_active_bg" "$C_PRIMARY")
-
     # Window (Normal)
     C_WIN_NORMAL_NUM=$(get_opt "@pwlite_color_win_normal_num" "$C_LIGHT")
     C_WIN_NORMAL_SEP=$(get_opt "@pwlite_color_win_normal_sep" "$C_LIGHTER")
     C_WIN_NORMAL_NAME=$(get_opt "@pwlite_color_win_normal_name" "$C_LIGHTER")
     C_WIN_NORMAL_BG=$(get_opt "@pwlite_color_win_normal_bg" "$C_DARK")
+
+    # Window (Current)
+    C_WIN_CURRENT_NUM=$(get_opt "@pwlite_color_win_current_num" "$C_SECONDARY")
+    C_WIN_CURRENT_SEP=$(get_opt "@pwlite_color_win_current_sep" "$C_SECONDARY")
+    C_WIN_CURRENT_NAME=$(get_opt "@pwlite_color_win_current_name" "$C_LIGHTER")
+    C_WIN_CURRENT_BG=$(get_opt "@pwlite_color_win_current_bg" "$C_PRIMARY")
 
     # Session
     C_SESSION_NUM=$(get_opt "@pwlite_color_session_num" "$C_ACCENT")
@@ -56,7 +56,7 @@ set_vars() {
     C_STATUS_BG=$(get_opt "@pwlite_color_status_bg" "$C_DARKER")
 
     # Pane Border
-    C_PANE_BORDER_ACTIVE_FG=$(get_opt "@pwlite_color_pane_border_active_fg" "$C_LIGHTER")
+    C_PANE_BORDER_CURRENT_FG=$(get_opt "@pwlite_color_pane_border_current_fg" "$C_LIGHTER")
     C_PANE_BORDER_NORMAL_FG=$(get_opt "@pwlite_color_pane_border_normal_fg" "$C_DARKER")
 
     # Prefix Highlight
@@ -93,19 +93,18 @@ unset_vars() {
     unset C_DARK
     unset C_DARKER
     unset C_ACCENT
-    # C_ACCENT
-
-    # Window (Active)
-    unset C_WIN_ACTIVE_NUM
-    unset C_WIN_ACTIVE_SEP
-    unset C_WIN_ACTIVE_NAME
-    unset C_WIN_ACTIVE_BG
 
     # Window (Normal)
     unset C_WIN_NORMAL_NUM
     unset C_WIN_NORMAL_SEP
     unset C_WIN_NORMAL_NAME
     unset C_WIN_NORMAL_BG
+
+    # Window (Current)
+    unset C_WIN_CURRENT_NUM
+    unset C_WIN_CURRENT_SEP
+    unset C_WIN_CURRENT_NAME
+    unset C_WIN_CURRENT_BG
 
     # Session
     unset C_SESSION_NUM
@@ -117,7 +116,7 @@ unset_vars() {
     unset C_STATUS_BG
 
     # Pane Border
-    unset C_PANE_BORDER_ACTIVE_FG
+    unset C_PANE_BORDER_CURRENT_FG
     unset C_PANE_BORDER_NORMAL_FG
 
     # Prefix Highlight
@@ -172,10 +171,10 @@ set_window() {
     # Window
     window_status_num_normal="$(separator R solid $C_DARKER $C_WIN_NORMAL_BG) #[fg=$C_WIN_NORMAL_NUM,bg=$C_WIN_NORMAL_BG,nobold]#I"
     window_status_name_normal="#[fg=$C_WIN_NORMAL_NAME,bg=$C_WIN_NORMAL_BG]#W $(separator R solid $C_WIN_NORMAL_BG $C_DARKER)"
-    window_status_num_active="$(separator R solid $C_DARKER $C_WIN_ACTIVE_BG) #[fg=$C_WIN_ACTIVE_NUM,bg=$C_WIN_ACTIVE_BG,bold]#I"
-    window_status_name_active="#[fg=$C_WIN_ACTIVE_NAME,bg=$C_WIN_ACTIVE_BG,bold]#W $(separator R solid $C_WIN_ACTIVE_BG $C_DARKER)"
+    window_status_num_current="$(separator R solid $C_DARKER $C_WIN_CURRENT_BG) #[fg=$C_WIN_CURRENT_NUM,bg=$C_WIN_CURRENT_BG,bold]#I"
+    window_status_name_current="#[fg=$C_WIN_CURRENT_NAME,bg=$C_WIN_CURRENT_BG,bold]#W $(separator R solid $C_WIN_CURRENT_BG $C_DARKER)"
     set_opt window-status-format "$window_status_num_normal $window_status_name_normal"
-    set_opt window-status-current-format "$window_status_num_active $window_status_name_active"
+    set_opt window-status-current-format "$window_status_num_current $window_status_name_current"
     set_opt window-status-separator ""
 }
 
