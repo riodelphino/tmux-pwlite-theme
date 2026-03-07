@@ -13,7 +13,13 @@ get_opt() {
 set_opt() {
     local name="$1"
     local value="$2"
-    tmux set -gq "$name" "$value"
+    tmux set -g "$name" "$value"
+}
+
+set_optw() {
+    local name="$1"
+    local value="$2"
+    tmux setw -g "$name" "$value"
 }
 
 set_vars() {
@@ -61,8 +67,12 @@ set_vars() {
     C_STATUS_BG=$(get_opt "@pwlite_color_status_bg" "$C_DARKER")
 
     # Pane Border
-    C_PANE_BORDER_CURRENT_FG=$(get_opt "@pwlite_color_pane_border_current_fg" "$C_LIGHTER")
     C_PANE_BORDER_NORMAL_FG=$(get_opt "@pwlite_color_pane_border_normal_fg" "$C_DARKER")
+    C_PANE_BORDER_ACTIVE_FG=$(get_opt "@pwlite_color_pane_border_active_fg" "$C_LIGHTER")
+
+    # Display Pane
+    C_DISPLAY_PANES_NORMAL_FG=$(get_opt "@pwlite_color_display_panes_normal_fg" "$C_DARKER")
+    C_DISPLAY_PANES_ACTIVE_FG=$(get_opt "@pwlite_color_display_panes_active_fg" "$C_LIGHTER")
 
     # Prefix Highlight
     C_PREFIX_HIGHLIGHT_FG=$(get_opt "@pwlite_color_prefix_highlight_fg" "$C_LIGHTER")
@@ -76,70 +86,6 @@ set_vars() {
 
     # Clock Mode
     C_CLOCK_MODE=$(get_opt "@pwlite_color_clock_mode" "$C_PRIMARY")
-}
-
-unset_vars() {
-    unset CURRENT_DIR
-
-    # --- Separator ---
-    unset SEPARATOR_SOLID_L
-    unset SEPARATOR_SOLID_R
-    unset SEPARATOR_THIN_L
-    unset SEPARATOR_THIN_R
-
-    # --- Format ---
-    unset TIME_FORMAT
-    unset DATE_FORMAT
-
-    # --- Colors ---
-    # Presets
-    unset C_FG
-    unset C_BG
-    unset C_PRIMARY
-    unset C_SECONDARY
-    unset C_LIGHTER
-    unset C_LIGHT
-    unset C_DARK
-    unset C_DARKER
-    unset C_ACCENT
-
-    # Window (Normal)
-    unset C_WIN_NORMAL_NUM
-    unset C_WIN_NORMAL_SEP
-    unset C_WIN_NORMAL_NAME
-    unset C_WIN_NORMAL_BG
-
-    # Window (Current)
-    unset C_WIN_CURRENT_NUM
-    unset C_WIN_CURRENT_SEP
-    unset C_WIN_CURRENT_NAME
-    unset C_WIN_CURRENT_BG
-
-    # Session
-    unset C_SESSION_NUM
-    unset C_SESSION_NAME
-    unset C_SESSION_BG
-
-    # Status
-    unset C_STATUS_FG
-    unset C_STATUS_BG
-
-    # Pane Border
-    unset C_PANE_BORDER_CURRENT_FG
-    unset C_PANE_BORDER_NORMAL_FG
-
-    # Prefix Highlight
-    unset C_PREFIX_HIGHLIGHT_FG
-    unset C_PREFIX_HIGHLIGHT_BG
-
-    # Message
-    unset C_MESSAGE_FG
-    unset C_MESSAGE_BG
-    unset C_MESSAGE_COMMAND_FG
-    unset C_MESSAGE_COMMAND_BG
-
-    # Clock Mode
-    unset C_CLOCK_MODE
 }
 
 # args:
@@ -169,30 +115,52 @@ separator() {
 set_status() {
     # Status
     session_name="#[fg=$C_SESSION_NAME,bg=$C_SESSION_BG,bold] #S $(separator R solid "$C_SESSION_BG" "$C_STATUS_BG")"
-    time="$(separator L thin $C_LIGHT $C_DARK)#[fg=$C_STATUS_FG,bg=$C_DARK] $TIME_FORMAT"
-    day="$(separator L thin $C_LIGHT $C_DARK)#[fg=$C_STATUS_FG,bg=$C_DARK] $DATE_FORMAT"
-    battery="$(separator L thin $C_LIGHT $C_DARK)#[fg=$C_STATUS_FG,bg=$C_DARK] #{battery_color_charge_fg}#{battery_icon} #{battery_percentage}"
-    set_opt status-left "$session_name"
-    set_opt status-right "#{prefix_highlight} $time $day $battery $hostname"
+    time="$(separator L thin "$C_LIGHT" "$C_DARK")#[fg=$C_STATUS_FG,bg=$C_DARK] $TIME_FORMAT"
+    date="$(separator L thin "$C_LIGHT" "$C_DARK")#[fg=$C_STATUS_FG,bg=$C_DARK] $DATE_FORMAT"
+    battery="$(separator L thin "$C_LIGHT" "$C_DARK")#[fg=$C_STATUS_FG,bg=$C_DARK] #{battery_color_charge_fg}#{battery_icon} #{battery_percentage}"
+    hostname="$(separator L solid "$C_DARKER" "$C_DARK")#H"
+    set_opt "status-bg" "$C_STATUS_BG"
+    set_opt "status-fg" "$C_STATUS_FG"
+    set_opt "status-attr" "none"
+    set_opt "status-left" "$session_name"
+    set_opt "status-right" "#{prefix_highlight} $time $date $battery $hostname"
 }
 
 set_window() {
     # Window
-    window_status_num_normal="$(separator R solid $C_DARKER $C_WIN_NORMAL_BG) #[fg=$C_WIN_NORMAL_NUM,bg=$C_WIN_NORMAL_BG,nobold]#I"
-    window_status_name_normal="#[fg=$C_WIN_NORMAL_NAME,bg=$C_WIN_NORMAL_BG]#W $(separator R solid $C_WIN_NORMAL_BG $C_DARKER)"
+    window_status_num_normal="$(separator R solid "$C_DARKER" "$C_WIN_NORMAL_BG") #[fg=$C_WIN_NORMAL_NUM,bg=$C_WIN_NORMAL_BG,nobold]#I"
+    window_status_name_normal="#[fg=$C_WIN_NORMAL_NAME,bg=$C_WIN_NORMAL_BG]#W $(separator R solid "$C_WIN_NORMAL_BG" "$C_DARKER")"
     window_status_num_current="$(separator R solid $C_DARKER $C_WIN_CURRENT_BG) #[fg=$C_WIN_CURRENT_NUM,bg=$C_WIN_CURRENT_BG,bold]#I"
-    window_status_name_current="#[fg=$C_WIN_CURRENT_NAME,bg=$C_WIN_CURRENT_BG,bold]#W $(separator R solid $C_WIN_CURRENT_BG $C_DARKER)"
-    set_opt window-status-format "$window_status_num_normal $window_status_name_normal"
-    set_opt window-status-current-format "$window_status_num_current $window_status_name_current"
-    set_opt window-status-separator ""
+    window_status_name_current="#[fg=$C_WIN_CURRENT_NAME,bg=$C_WIN_CURRENT_BG,bold]#W $(separator R solid "$C_WIN_CURRENT_BG" "$C_DARKER")"
+    set_opt "window-status-format" "$window_status_num_normal $window_status_name_normal"
+    set_opt "window-status-current-format" "$window_status_num_current $window_status_name_current"
+    set_opt "window-status-separator" ""
+    set_optw "window-status-style" "fg=$C_WIN_NORMAL_NAME,bg=$C_WIN_NORMAL_BG"
+    set_optw "window-status-current-style" "fg=$C_WIN_CURRENT_NAME,bg=$C_WIN_CURRENT_BG"
+}
+
+set_message() {
+    # Messages
+    set_opt "message-fg" "$C_MESSAGE_FG"
+    set_opt "message-bg" "$C_MESSAGE_BG"
+    set_opt "message-command-fg" "$C_MESSAGE_COMMAND_FG"
+    set_opt "message-command-bg" "$C_MESSAGE_COMMAND_BG"
+}
+
+set_pane() {
+    # Pane border
+    set_opt "pane-border-style" "fg=$C_PANE_BORDER_NORMAL_FG"
+    set_opt "pane-active-border-style" "fg=$C_PANE_BORDER_ACTIVE_FG"
+    set_opt "display-panes-colour" "$C_DISPLAY_PANES_NORMAL_FG"
+    set_opt "display-panes-active-colour" "$C_DISPLAY_PANES_ACTIVE_FG"
 }
 
 set_config() {
     # Plugin supports
     # tmux-prefix-highlight
     set_opt "@prefix_highlight_show_copy_mode" 'on'
-    set_opt "@prefix_highlight_fg" "$COLOR_PREFIX_HIGHLIGHT_FG"
-    set_opt "@prefix_highlight_bg" "$COLOR_PREFIX_HIGHLIGHT_BG"
+    set_opt "@prefix_highlight_fg" "$C_PREFIX_HIGHLIGHT_FG"
+    set_opt "@prefix_highlight_bg" "$C_PREFIX_HIGHLIGHT_BG"
 
     # General
     set_opt "status-interval" 5
@@ -203,26 +171,11 @@ set_config() {
     # Window status alignment
     set_opt "status-justify" "left"
 
-    # Colors
-    set_opt "status-bg" "$COLOR_STATUS_BG"
-    set_opt "status-fg" "$COLOR_STATUS_FG"
-    set_opt "status-attr" "none"
-
-    # Pane border
-    set_opt "pane-border-fg" "$COLOR_PANE_BORDER_NORMAL_FG"
-    set_opt "pane-active-border-fg" "$COLOR_PANE_BORDER_ACTIVE_FG"
-    set_opt "display-panes-colour" "$COLOR_DISPLAY_PANE_NORMAL_FG"
-    set_opt "display-panes-active-colour" "$COLOR_DISPLAY_PANE_ACTIVE_FG"
-    set -gqw window-status-activity-attr none
+    set_optw window-status-activity-style none
 
     # Clock mode
-    setw -g clock-mode-colour $COLOR_CLOCK_MODE
+    set_optw clock-mode-colour "$C_CLOCK_MODE"
 
-    # Messages
-    set_opt "message-fg" "$COLOR_MESSAGE_FG"
-    set_opt "message-bg" "$COLOR_MESSAGE_BG"
-    set_opt "message-command-fg" "$COLOR_MESSAGE_COMMAND_FG"
-    set_opt "message-command-bg" "$COLOR_MESSAGE_COMMAND_BG"
 }
 
 main() {
@@ -230,9 +183,9 @@ main() {
 
     set_status
     set_window
+    set_pane
+    set_message
     set_config
-
-    unset_vars
 }
 
 main
