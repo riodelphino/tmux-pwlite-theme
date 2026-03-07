@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CRYPTOMILK_CONFIG="cryptomilk_config.conf"
+PWLITE_CONFIG="config.conf"
 
 get_opt() {
     local name="$1"
@@ -76,10 +76,7 @@ set_vars() {
 unset_vars() {
     unset CURRENT_DIR
 
-    unset CRYPTOMILK_THEME_COMMON_CONFIG_FILE
-    unset CRYPTOMILK_THEME
-    unset CRYPTOMILK_NO_PATCHED_FONT_THEME
-    unset CRYPTOMILK_NO_PATCHED_FONT_OPTION
+    unset PWLITE_CONFIG
 
     # --- Separator ---
     unset SEPARATOR_SOLID_L
@@ -184,7 +181,7 @@ set_window() {
 
 main() {
     set_vars
-    tmux source-file "$CURRENT_DIR/$CRYPTOMILK_CONFIG"
+    tmux source-file "$CURRENT_DIR/$PWLITE_CONFIG"
 
     set_status
     set_window
