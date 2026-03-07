@@ -68,11 +68,11 @@ set_vars() {
 
     # Pane Border
     C_PANE_BORDER_NORMAL_FG=$(get_opt "@pwlite_color_pane_border_normal_fg" "$C_DARKER")
-    C_PANE_BORDER_ACTIVE_FG=$(get_opt "@pwlite_color_pane_border_active_fg" "$C_LIGHTER")
+    C_PANE_BORDER_ACTIVE_FG=$(get_opt "@pwlite_color_pane_border_active_fg" "$C_PRIMARY")
 
     # Display Pane
-    C_DISPLAY_PANES_NORMAL_FG=$(get_opt "@pwlite_color_display_panes_normal_fg" "$C_DARKER")
-    C_DISPLAY_PANES_ACTIVE_FG=$(get_opt "@pwlite_color_display_panes_active_fg" "$C_LIGHTER")
+    C_DISPLAY_PANES_NORMAL_FG=$(get_opt "@pwlite_color_display_panes_normal_fg" "$C_FG")
+    C_DISPLAY_PANES_ACTIVE_FG=$(get_opt "@pwlite_color_display_panes_active_fg" "$C_PRIMARY")
 
     # Prefix Highlight
     C_PREFIX_HIGHLIGHT_FG=$(get_opt "@pwlite_color_prefix_highlight_fg" "$C_LIGHTER")
@@ -118,7 +118,7 @@ set_status() {
     time="$(separator L thin "$C_LIGHT" "$C_DARK")#[fg=$C_STATUS_FG,bg=$C_DARK] $TIME_FORMAT"
     date="$(separator L thin "$C_LIGHT" "$C_DARK")#[fg=$C_STATUS_FG,bg=$C_DARK] $DATE_FORMAT"
     battery="$(separator L thin "$C_LIGHT" "$C_DARK")#[fg=$C_STATUS_FG,bg=$C_DARK] #{battery_color_charge_fg}#{battery_icon} #{battery_percentage}"
-    hostname="$(separator L solid "$C_DARKER" "$C_DARK")#H"
+    # hostname="$(separator L solid "$C_DARKER" "$C_DARK")#H"
     set_opt "status-bg" "$C_STATUS_BG"
     set_opt "status-fg" "$C_STATUS_FG"
     set_opt "status-attr" "none"
@@ -180,7 +180,6 @@ set_config() {
 
 main() {
     set_vars
-
     set_status
     set_window
     set_pane
