@@ -71,6 +71,8 @@ Color options
 | Category         | Option Name                          | Default        |
 | ---------------- | ------------------------------------ | -------------- |
 | Presets          |                                      |                |
+|                  | @pwlite_color_fg                     | colour253      |
+|                  | @pwlite_color_bg                     | colour236      |
 |                  | @pwlite_color_primary                | colour31       |
 |                  | @pwlite_color_secondary              | colour81       |
 |                  | @pwlite_color_lighter                | colour231      |
@@ -91,7 +93,7 @@ Color options
 | Session          |                                      |                |
 |                  | @pwlite_color_session_num            | @color_accent  |
 |                  | @pwlite_color_session_name           | @color_accent  |
-|                  | @pwlite_color_session_bg             | white          |
+|                  | @pwlite_color_session_bg             | @color_fg      |
 | Status           |                                      |                |
 |                  | @pwlite_color_status_fg              | @color_lighter |
 |                  | @pwlite_color_status_bg              | @color_darker  |

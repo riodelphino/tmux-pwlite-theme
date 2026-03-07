@@ -26,6 +26,8 @@ set_vars() {
 
     # --- Colors ---
     # Presets
+    C_FG=$(get_opt "@pwlite_color_fg" "colour253")
+    C_BG=$(get_opt "@pwlite_color_bg" "colour236")
     C_PRIMARY=$(get_opt "@pwlite_color_primary" "colour31")
     C_SECONDARY=$(get_opt "@pwlite_color_secondary" "colour81")
     C_LIGHTER=$(get_opt "@pwlite_color_lighter" "colour231")
@@ -49,7 +51,7 @@ set_vars() {
     # Session
     C_SESSION_NUM=$(get_opt "@pwlite_color_session_num" "$C_ACCENT")
     C_SESSION_NAME=$(get_opt "@pwlite_color_session_name" "$C_ACCENT")
-    C_SESSION_BG=$(get_opt "@pwlite_color_session_bg" "white")
+    C_SESSION_BG=$(get_opt "@pwlite_color_session_bg" "$C_FG")
 
     # Status
     C_STATUS_FG=$(get_opt "@pwlite_color_status_fg" "$C_LIGHTER")
@@ -86,6 +88,8 @@ unset_vars() {
 
     # --- Colors ---
     # Presets
+    unset C_FG
+    unset C_BG
     unset C_PRIMARY
     unset C_SECONDARY
     unset C_LIGHTER
