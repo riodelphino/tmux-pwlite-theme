@@ -19,58 +19,58 @@ set_opt() {
 
 set_vars() {
     # --- Separator ---
-    SEPARATOR_SOLID_L=$(get_opt "@separator-solid-l" "")
-    SEPARATOR_SOLID_R=$(get_opt "@separator-solid-r" "")
-    SEPARATOR_THIN_L=$(get_opt "@separator-thin-l" "")
-    SEPARATOR_THIN_R=$(get_opt "@separator-thin-r" "")
+    SEPARATOR_SOLID_L=$(get_opt "@separator_solid_l" "")
+    SEPARATOR_SOLID_R=$(get_opt "@separator_solid_r" "")
+    SEPARATOR_THIN_L=$(get_opt "@separator_thin_l" "")
+    SEPARATOR_THIN_R=$(get_opt "@separator_thin_r" "")
 
     # --- Colors ---
     # Presets
-    C_PRIMARY=$(get_opt "@color-primary" "colour31")
-    C_SECONDARY=$(get_opt "@color-secondary" "colour81")
-    C_LIGHTER=$(get_opt "@color-lighter" "colour231")
-    C_LIGHT=$(get_opt "@color-light" "colour244")
-    C_DARK=$(get_opt "@color-dark" "colour237")
-    C_DARKER=$(get_opt "@color-darker" "colour236")
-    C_ACCENT=$(get_opt "@color-accent" "colour208")
+    C_PRIMARY=$(get_opt "@color_primary" "colour31")
+    C_SECONDARY=$(get_opt "@color_secondary" "colour81")
+    C_LIGHTER=$(get_opt "@color_lighter" "colour231")
+    C_LIGHT=$(get_opt "@color_light" "colour244")
+    C_DARK=$(get_opt "@color_dark" "colour237")
+    C_DARKER=$(get_opt "@color_darker" "colour236")
+    C_ACCENT=$(get_opt "@color_accent" "colour208")
 
     # Window (Active)
-    C_WIN_ACTIVE_NUM=$(get_opt "@color-win-active-num" "$C_SECONDARY")
-    C_WIN_ACTIVE_SEP=$(get_opt "@color-win-active-sep" "$C_SECONDARY")
-    C_WIN_ACTIVE_NAME=$(get_opt "@color-win-active-name" "$C_LIGHTER")
-    C_WIN_ACTIVE_BG=$(get_opt "@color-win-active-bg" "$C_PRIMARY")
+    C_WIN_ACTIVE_NUM=$(get_opt "@color_win_active_num" "$C_SECONDARY")
+    C_WIN_ACTIVE_SEP=$(get_opt "@color_win_active_sep" "$C_SECONDARY")
+    C_WIN_ACTIVE_NAME=$(get_opt "@color_win_active_name" "$C_LIGHTER")
+    C_WIN_ACTIVE_BG=$(get_opt "@color_win_active_bg" "$C_PRIMARY")
 
     # Window (Normal)
-    C_WIN_NORMAL_NUM=$(get_opt "@color-win-normal-num" "$C_LIGHT")
-    C_WIN_NORMAL_SEP=$(get_opt "@color-win-normal-sep" "$C_LIGHTER")
-    C_WIN_NORMAL_NAME=$(get_opt "@color-win-normal-name" "$C_LIGHTER")
-    C_WIN_NORMAL_BG=$(get_opt "@color-win-normal-bg" "$C_DARK")
+    C_WIN_NORMAL_NUM=$(get_opt "@color_win_normal_num" "$C_LIGHT")
+    C_WIN_NORMAL_SEP=$(get_opt "@color_win_normal_sep" "$C_LIGHTER")
+    C_WIN_NORMAL_NAME=$(get_opt "@color_win_normal_name" "$C_LIGHTER")
+    C_WIN_NORMAL_BG=$(get_opt "@color_win_normal_bg" "$C_DARK")
 
     # Session
-    C_SESSION_NUM=$(get_opt "@color-session-num" "$C_ACCENT")
-    C_SESSION_NAME=$(get_opt "@color-session-name" "$C_ACCENT")
-    C_SESSION_BG=$(get_opt "@color-session-bg" "white")
+    C_SESSION_NUM=$(get_opt "@color_session_num" "$C_ACCENT")
+    C_SESSION_NAME=$(get_opt "@color_session_name" "$C_ACCENT")
+    C_SESSION_BG=$(get_opt "@color_session_bg" "white")
 
     # Status
-    C_STATUS_FG=$(get_opt "@color-status-fg" "$C_LIGHTER")
-    C_STATUS_BG=$(get_opt "@color-status-bg" "$C_DARKER")
+    C_STATUS_FG=$(get_opt "@color_status_fg" "$C_LIGHTER")
+    C_STATUS_BG=$(get_opt "@color_status_bg" "$C_DARKER")
 
     # Pane Border
-    C_PANE_BORDER_ACTIVE_FG=$(get_opt "@color-pane-border-active-fg" "$C_LIGHTER")
-    C_PANE_BORDER_NORMAL_FG=$(get_opt "@color-pane-border-normal-fg" "$C_DARKER")
+    C_PANE_BORDER_ACTIVE_FG=$(get_opt "@color_pane_border_active_fg" "$C_LIGHTER")
+    C_PANE_BORDER_NORMAL_FG=$(get_opt "@color_pane_border_normal_fg" "$C_DARKER")
 
     # Prefix Highlight
-    C_PREFIX_HIGHLIGHT_FG=$(get_opt "@color-prefix-highlight-fg" "$C_LIGHTER")
-    C_PREFIX_HIGHLIGHT_BG=$(get_opt "@color-prefix-highlight-bg" "$C_PRIMARY")
+    C_PREFIX_HIGHLIGHT_FG=$(get_opt "@color_prefix_highlight_fg" "$C_LIGHTER")
+    C_PREFIX_HIGHLIGHT_BG=$(get_opt "@color_prefix_highlight_bg" "$C_PRIMARY")
 
     # Message
-    C_MESSAGE_FG=$(get_opt "@color-message-fg" "$C_LIGHTER")
-    C_MESSAGE_BG=$(get_opt "@color-message-bg" "$C_DARKER")
-    C_MESSAGE_COMMAND_FG=$(get_opt "@color-message-command-fg" "$C_PRIMARY")
-    C_MESSAGE_COMMAND_BG=$(get_opt "@color-message-command-bg" "$C_DARKER")
+    C_MESSAGE_FG=$(get_opt "@color_message_fg" "$C_LIGHTER")
+    C_MESSAGE_BG=$(get_opt "@color_message_bg" "$C_DARKER")
+    C_MESSAGE_COMMAND_FG=$(get_opt "@color_message_command_fg" "$C_PRIMARY")
+    C_MESSAGE_COMMAND_BG=$(get_opt "@color_message_command_bg" "$C_DARKER")
 
     # Clock Mode
-    C_CLOCK_MODE=$(get_opt "@color-clock-mode" "$C_PRIMARY")
+    C_CLOCK_MODE=$(get_opt "@color_clock_mode" "$C_PRIMARY")
 }
 
 unset_vars() {

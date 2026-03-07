@@ -1,6 +1,5 @@
 # TODO
 
-- [ ] **refactor:** Change `-` to `_` in option names
 - [ ] **refactor:** Consistant option names (Change `ACTIVE` to `CURRENT`)
 - [ ] **refactor:** Add plugin name to @options
 - [ ] Check whether config.conf works or not
