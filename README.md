@@ -111,9 +111,6 @@ Color options
 | Display Panes    |                                       |                       |
 |                  | @pwlite_color_display_panes_normal_fg | @pwlite_color_fg      |
 |                  | @pwlite_color_display_panes_active_fg | @pwlite_color_primary |
-| Prefix Highlight |                                       |                       |
-|                  | @pwlite_color_prefix_highlight_fg     | @pwlite_color_lighter |
-|                  | @pwlite_color_prefix_highlight_bg     | @pwlite_color_primary |
 | Message          |                                       |                       |
 |                  | @pwlite_color_message_fg              | @pwlite_color_lighter |
 |                  | @pwlite_color_message_bg              | @pwlite_color_darker  |
@@ -121,6 +118,14 @@ Color options
 |                  | @pwlite_color_message_command_bg      | @pwlite_color_darker  |
 | Clock Mode       |                                       |                       |
 |                  | @pwlite_color_clock_mode              | @pwlite_color_primary |
+
+### Plugins Support
+
+| Plugin Name           | Option Name                       | Default               |
+| --------------------- | --------------------------------- | --------------------- |
+| tmux-prefix-highlight |                                   |                       |
+|                       | @pwlite_color_prefix_highlight_fg | @pwlite_color_lighter |
+|                       | @pwlite_color_prefix_highlight_bg | @pwlite_color_primary |
 
 
 ## License

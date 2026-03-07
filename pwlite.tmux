@@ -155,13 +155,15 @@ set_pane() {
     set_opt "display-panes-active-colour" "$C_DISPLAY_PANES_ACTIVE_FG"
 }
 
-set_config() {
-    # Plugin supports
+# Plugin supports
+set_plugin() {
     # tmux-prefix-highlight
     set_opt "@prefix_highlight_show_copy_mode" 'on'
     set_opt "@prefix_highlight_fg" "$C_PREFIX_HIGHLIGHT_FG"
     set_opt "@prefix_highlight_bg" "$C_PREFIX_HIGHLIGHT_BG"
+}
 
+set_config() {
     # General
     set_opt "status-interval" 5
     set_opt "status" "on"
@@ -184,6 +186,7 @@ main() {
     set_window
     set_pane
     set_message
+    set_plugin
     set_config
 }
 
