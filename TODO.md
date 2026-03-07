@@ -8,4 +8,3 @@
 - [ ] **docs:** Add how to unset tmux options
 - [ ] **feat:** Add session num (with @show-session-num option)
 - [ ] Displaying `battery` or not depends on user (Should be modifiable)
-- [ ] **docs:** Add screenshots
