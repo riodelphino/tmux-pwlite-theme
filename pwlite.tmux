@@ -173,10 +173,10 @@ set_config() {
     # Window status alignment
     set_opt "status-justify" "left"
 
-    set_optw window-status-activity-style none
+    set_optw "window-status-activity-style" none
 
     # Clock mode
-    set_optw clock-mode-colour "$C_CLOCK_MODE"
+    set_optw "clock-mode-colour" "$C_CLOCK_MODE"
 
 }
 

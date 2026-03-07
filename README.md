@@ -9,11 +9,13 @@ Inspired by [tmux-dark-plus-theme](https://github.com/khanghh/tmux-dark-plus-the
 ## Features
 
 - Light weight (Low CPU consumption)
-- Easy config via tmux @options
+- Easy config (via tmux @options)
+
+## Screenshots
 
 ![Screenshot](./screenshots/tmux-pwlite-theme-screenshot-01.png)
 
-This screenshot is displaying:
+Includes:
 - [tmux-battery](https://github.com/tmux-plugins/tmux-battery) on `status_right`
 
 
