@@ -1,9 +1,10 @@
 # tmux-pwlite-theme
 
-Powerline-styled tmux theme.
+Configurable Powerline-styled tmux theme.
 
 Forked from [cryptomilk/tmux-cryptomilk-theme](https://github.com/cryptomilk/tmux-cryptomilk-theme).  
 Inspired by [tmux-dark-plus-theme](https://github.com/khanghh/tmux-dark-plus-theme).
+
 
 ## Features
 

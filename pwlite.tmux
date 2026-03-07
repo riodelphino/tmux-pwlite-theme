@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PWLITE_CONFIG="config.conf"
 
 get_opt() {
     local name="$1"
@@ -26,7 +25,7 @@ set_vars() {
 
     # --- Colors ---
     # Presets
-    C_FG=$(get_opt "@pwlite_color_fg" "colour253")
+    C_FG=$(get_opt "@pwlite_color_fg" "colour254")
     C_BG=$(get_opt "@pwlite_color_bg" "colour236")
     C_PRIMARY=$(get_opt "@pwlite_color_primary" "colour31")
     C_SECONDARY=$(get_opt "@pwlite_color_secondary" "colour81")
@@ -77,8 +76,6 @@ set_vars() {
 
 unset_vars() {
     unset CURRENT_DIR
-
-    unset PWLITE_CONFIG
 
     # --- Separator ---
     unset SEPARATOR_SOLID_L
@@ -182,12 +179,51 @@ set_window() {
     set_opt window-status-separator ""
 }
 
+set_config() {
+    # Plugin supports
+    # tmux-prefix-highlight
+    set_opt "@prefix_highlight_show_copy_mode" 'on'
+    set_opt "@prefix_highlight_fg" "$COLOR_PREFIX_HIGHLIGHT_FG"
+    set_opt "@prefix_highlight_bg" "$COLOR_PREFIX_HIGHLIGHT_BG"
+
+    # General
+    set_opt "status-interval" 5
+    set_opt "status" "on"
+    set_opt "status-right-length" 50
+    set_opt "status-left-length" 20
+
+    # Window status alignment
+    set_opt "status-justify" "left"
+
+    # Colors
+    set_opt "status-bg" "$COLOR_STATUS_BG"
+    set_opt "status-fg" "$COLOR_STATUS_FG"
+    set_opt "status-attr" "none"
+
+    # Pane border
+    set_opt "pane-border-fg" "$COLOR_PANE_BORDER_NORMAL_FG"
+    set_opt "pane-active-border-fg" "$COLOR_PANE_BORDER_ACTIVE_FG"
+    set_opt "display-panes-colour" "$COLOR_DISPLAY_PANE_NORMAL_FG"
+    set_opt "display-panes-active-colour" "$COLOR_DISPLAY_PANE_ACTIVE_FG"
+    set -gqw window-status-activity-attr none
+
+    # Clock mode
+    setw -g clock-mode-colour $COLOR_CLOCK_MODE
+
+    # Messages
+    set_opt "message-fg" "$COLOR_MESSAGE_FG"
+    set_opt "message-bg" "$COLOR_MESSAGE_BG"
+    set_opt "message-command-fg" "$COLOR_MESSAGE_COMMAND_FG"
+    set_opt "message-command-bg" "$COLOR_MESSAGE_COMMAND_BG"
+}
+
 main() {
     set_vars
     tmux source-file "$CURRENT_DIR/$PWLITE_CONFIG"
 
     set_status
     set_window
+    set_config
 
     unset_vars
 }
