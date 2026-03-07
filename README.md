@@ -66,6 +66,13 @@ set -gu @pwlite_color_win_normal_bg
 | @pwlite_separator_thin_l  |        |
 | @pwlite_separator_thin_r  |        |
 
+### Formats
+
+| Option Name         | Default  |
+| ------------------- | -------- |
+| @pwlite_time_format | %H:%M    |
+| @pwlite_date_format | %Y-%m-%d |
+
 ### Colors
 
 Color options

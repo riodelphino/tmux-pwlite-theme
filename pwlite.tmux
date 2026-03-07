@@ -23,6 +23,10 @@ set_vars() {
     SEPARATOR_THIN_L=$(get_opt "@pwlite_separator_thin_l" "")
     SEPARATOR_THIN_R=$(get_opt "@pwlite_separator_thin_r" "")
 
+    # --- Format ---
+    TIME_FORMAT=$(get_opt "@pwlite_time_format" "%H:%M")
+    DATE_FORMAT=$(get_opt "@pwlite_date_format" "%Y-%m-%d")
+
     # --- Colors ---
     # Presets
     C_FG=$(get_opt "@pwlite_color_fg" "colour254")
@@ -82,6 +86,10 @@ unset_vars() {
     unset SEPARATOR_SOLID_R
     unset SEPARATOR_THIN_L
     unset SEPARATOR_THIN_R
+
+    # --- Format ---
+    unset TIME_FORMAT
+    unset DATE_FORMAT
 
     # --- Colors ---
     # Presets
@@ -161,8 +169,8 @@ separator() {
 set_status() {
     # Status
     session_name="#[fg=$C_SESSION_NAME,bg=$C_SESSION_BG,bold] #S $(separator R solid "$C_SESSION_BG" "$C_STATUS_BG")"
-    time="$(separator L thin $C_LIGHT $C_DARK)#[fg=$C_STATUS_FG,bg=$C_DARK] %H:%M"
-    day="$(separator L thin $C_LIGHT $C_DARK)#[fg=$C_STATUS_FG,bg=$C_DARK] %Y-%m-%d"
+    time="$(separator L thin $C_LIGHT $C_DARK)#[fg=$C_STATUS_FG,bg=$C_DARK] $TIME_FORMAT"
+    day="$(separator L thin $C_LIGHT $C_DARK)#[fg=$C_STATUS_FG,bg=$C_DARK] $DATE_FORMAT"
     battery="$(separator L thin $C_LIGHT $C_DARK)#[fg=$C_STATUS_FG,bg=$C_DARK] #{battery_color_charge_fg}#{battery_icon} #{battery_percentage}"
     set_opt status-left "$session_name"
     set_opt status-right "#{prefix_highlight} $time $day $battery $hostname"
