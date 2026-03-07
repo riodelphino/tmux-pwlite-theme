@@ -227,7 +227,6 @@ set_config() {
 
 main() {
     set_vars
-    tmux source-file "$CURRENT_DIR/$PWLITE_CONFIG"
 
     set_status
     set_window
