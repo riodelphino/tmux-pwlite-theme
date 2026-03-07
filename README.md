@@ -43,4 +43,4 @@ This screenshot is displaying:
 
 ## License
 
-MIT
+MIT License. See [LICENSE](./LICENSE)
