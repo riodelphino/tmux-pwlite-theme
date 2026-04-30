@@ -23,6 +23,9 @@ set_optw() {
 }
 
 set_vars() {
+    # --- Icons ---
+    ICON_SESSION=$(get_opt "@pwlite_icon_session" " ")
+
     # --- Separator ---
     SEPARATOR_SOLID_L=$(get_opt "@pwlite_separator_solid_l" "")
     SEPARATOR_SOLID_R=$(get_opt "@pwlite_separator_solid_r" "")
@@ -114,7 +117,7 @@ separator() {
 
 set_status() {
     # Status
-    session_name="#[fg=$C_SESSION_NAME,bg=$C_SESSION_BG,bold] #S $(separator R solid "$C_SESSION_BG" "$C_STATUS_BG")"
+    session_name="#[fg=$C_SESSION_NAME,bg=$C_SESSION_BG,bold] $ICON_SESSION#S $(separator R solid "$C_SESSION_BG" "$C_STATUS_BG")"
     time="$(separator L thin "$C_LIGHT" "$C_DARK")#[fg=$C_STATUS_FG,bg=$C_DARK] $TIME_FORMAT"
     date="$(separator L thin "$C_LIGHT" "$C_DARK")#[fg=$C_STATUS_FG,bg=$C_DARK] $DATE_FORMAT"
     battery="$(separator L thin "$C_LIGHT" "$C_DARK")#[fg=$C_STATUS_FG,bg=$C_DARK] #{battery_color_charge_fg}#{battery_icon} #{battery_percentage}"

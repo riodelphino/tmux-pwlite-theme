@@ -59,6 +59,13 @@ Unset the option:
 set -gu @pwlite_color_win_normal_bg
 ```
 
+### Icons
+
+| Option Name          | Default |
+| -------------------- | ------- |
+| @pwlite_icon_session |        |
+
+
 ### Separators
 
 | Option Name               | Default |
