@@ -6,20 +6,24 @@ Forked from [cryptomilk/tmux-cryptomilk-theme](https://github.com/cryptomilk/tmu
 Inspired by [tmux-dark-plus-theme](https://github.com/khanghh/tmux-dark-plus-theme).
 
 
-## Features
+## 🚀 Features
 
 - Light weight (Low CPU consumption)
 - Easy config (via tmux @options)
 
-## Screenshots
+## 🖼️ Screenshots
 
 ![Screenshot](./screenshots/tmux-pwlite-theme-screenshot-01.png)
 
 Includes:
 - [tmux-battery](https://github.com/tmux-plugins/tmux-battery) on `status_right`
 
+## ⚠️ Breaking Changes
 
-## Installation
+- v1.1.0
+    - Color variables are restructured.
+
+## ⚙️ Installation
 
 ### Install using [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
 
@@ -44,7 +48,7 @@ Includes:
 
         tmux source-file ~/.tmux.conf
 
-## Configuration
+## 🛠️ Configuration
 
 Set option:
 ```tmux
@@ -137,6 +141,6 @@ Color options
 |                       | @pwlite_color_prefix_highlight_bg | @pwlite_color_primary |
 
 
-## License
+## 🪪 License
 
 MIT License. See [LICENSE](./LICENSE)

@@ -1,7 +1,8 @@
 # CHANGELOG
 
-## [1.0.2](https://github.com/riodelphino/tmux-pwlite-theme/compare/v1.0.1...v1.0.2) (2026-05-01)
+## [1.1.0](https://github.com/riodelphino/tmux-pwlite-theme/compare/v1.0.1...v1.1.0) (2026-05-01)
 
+* **docs:** Add icons to headings
 * **chore:** Replace screenshot with new colors
 * **chore:** Change default dark color
 * **chore:** Change default session colors
