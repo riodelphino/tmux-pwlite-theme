@@ -45,7 +45,7 @@ set_vars() {
     C_LIGHTER=$(get_opt "@pwlite_color_lighter" "colour231")
     C_LIGHT=$(get_opt "@pwlite_color_light" "colour244")
     C_DARK=$(get_opt "@pwlite_color_dark" "colour237")
-    C_DARKER=$(get_opt "@pwlite_color_darker" "colour236")
+    C_DARKER=$(get_opt "@pwlite_color_darker" "colour235")
     C_ACCENT=$(get_opt "@pwlite_color_accent" "colour39")
 
     # Window (Normal)
