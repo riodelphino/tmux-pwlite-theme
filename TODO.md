@@ -1,5 +1,6 @@
 # TODO
 
+- [ ] **feature:** Restructure color variables
 - [ ] **chore:** Remove some config from `set_config` (Should be changed by `.tmux.conf`)
 - [ ] **feat:** Enable tmux-prefix-highlight with `#{prefix_highlight}`
 - [ ] **feat:** Enable hostname

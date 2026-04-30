@@ -46,7 +46,7 @@ set_vars() {
     C_LIGHT=$(get_opt "@pwlite_color_light" "colour244")
     C_DARK=$(get_opt "@pwlite_color_dark" "colour237")
     C_DARKER=$(get_opt "@pwlite_color_darker" "colour236")
-    C_ACCENT=$(get_opt "@pwlite_color_accent" "colour208")
+    C_ACCENT=$(get_opt "@pwlite_color_accent" "colour39")
 
     # Window (Normal)
     C_WIN_NORMAL_NUM=$(get_opt "@pwlite_color_win_normal_num" "$C_LIGHT")
@@ -63,7 +63,7 @@ set_vars() {
     # Session
     C_SESSION_NUM=$(get_opt "@pwlite_color_session_num" "$C_ACCENT")
     C_SESSION_NAME=$(get_opt "@pwlite_color_session_name" "$C_ACCENT")
-    C_SESSION_BG=$(get_opt "@pwlite_color_session_bg" "$C_FG")
+    C_SESSION_BG=$(get_opt "@pwlite_color_session_bg" "$C_DARK")
 
     # Status
     C_STATUS_FG=$(get_opt "@pwlite_color_status_fg" "$C_LIGHTER")
