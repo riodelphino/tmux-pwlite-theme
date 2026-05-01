@@ -2,6 +2,7 @@
 
 ## [1.1.0](https://github.com/riodelphino/tmux-pwlite-theme/compare/v1.0.1...v1.1.0) (2026-05-01)
 
+* **docs:** Add color variables in `TODO.md`
 * **docs:** Update tool's description
 * **docs:** Add color variables structure table in `TODO.md`
 * **docs:** Add icons to headings

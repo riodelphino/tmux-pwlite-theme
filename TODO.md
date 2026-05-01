@@ -33,7 +33,9 @@
 |  Window * | Window Active Title         | C_WIN_ACTIVE_TITLE | @pwlite_color_window_active_title |                                      |
 |  Widget   | Widget Background           | C_DTM_BG           | @pwlite_color_widget_bg           | = C_BG (default)                     |
 |  Widget   | Widget Foreground           | C_DTM_FG           | @pwlite_color_widget_fg           | = C_FG (default)                     |
-|  Widget   | Widget Separator Foreground | C_DTM_SEP_FG       | @pwlite_color_widget_separator    | Graish                               |
+|  Widget   | Widget Separator Foreground | C_DTM_SEP_FG       | @pwlite_color_widget_separator    | Grayish                              |
+|  Time     | Time Foreground             | C_TM_FG            | @pwlite_color_time_fg             | = C_FG (default)                     |
+|  Date     | Date Foreground             | C_DT_FG            | @pwlite_color_date_fg             | = C_FG (default)                     |
 
 - [ ] Apply them into code.
 - [ ] Apply them into `README.md`.
