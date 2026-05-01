@@ -8,7 +8,7 @@
 - [ ] **feat:** Add session num (with @show-session-num option)
 - [ ] **docs:** Add some color variations for `@pwlite_color_primary/secondary/accent`
 - [ ] Displaying `battery` or not depends on user (Should be modifiable)
-
+- [ ] Make status modifiable? (e.g. Swap date & time position, Add some plugin, Remove tmux-battery)
 
 ## Colors structure
 
